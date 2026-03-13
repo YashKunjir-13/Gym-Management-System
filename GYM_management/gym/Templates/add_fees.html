@@ -1,0 +1,41 @@
+{% extends 'navigationbar.html' %}
+{% block body %}
+
+<div class="container" style="margin-top:100px">
+    <h3 class="text-center text-primary font-weight-bold">
+        Add Fees - {{ member.name }}
+    </h3>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label><b>Month</b></label>
+        <input type="text" name="month" placeholder="January 2025" class="form-control" required>
+
+        <label><b>Amount</b></label>
+        <input type="number" name="amount" value="{{ member.amount }}" class="form-control" required>
+
+        <label><b>Paid On</b></label>
+        <input type="date" name="paid_on" class="form-control" required>
+
+        <label><b>Note</b></label>
+        <input type="text" name="note" class="form-control">
+
+        <br>
+        <input type="submit" value="Save" class="btn btn-primary form-control">
+    </form>
+
+    {% if error == "no" %}
+    <script>
+        alert("Fees record added successfully!");
+        window.location = "{% url 'member_fees_history' member.id %}";
+    </script>
+    {% endif %}
+
+    {% if error == "yes" %}
+    <script>alert("Something went wrong!");</script>
+    {% endif %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'navigationbar.html' %}
+{% load static %}
+{% block body %}
+
+
+
+<div class="container" style="margin-top:100px">
+    <h2 class="text-center text-primary font-weight-bold">Add Equipment Details</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label><b>Name</b></label>
+        <input type="text" placeholder=" Name" name="name" required class="form-control">
+
+        <label><b>Price</b></label>
+        <input type="number" placeholder="Price in Rs" name="price" required class="form-control">
+
+        <label><b>Unit</b></label>
+        <input type="text" placeholder=" Unit" name="unit" required class="form-control">
+
+         <label><b> Purchase Date</b></label>
+        <input type="date" placeholder=" date" name="date" required class="form-control">
+
+        <label><b>Condiiton</b></label>
+        <input type="radio"  name="condition" value = "working"> Working
+        <input type="radio"  name="condition" value = "not_working"> Not_Working
+        <br>
+
+        <input type="submit" value="submit" class="form-control btn btn-primary">
+    </form>
+</div>
+
+
+
+{% if error == "no" %}
+<script>
+    alert('Record save successfully');
+    window.location = "{% url 'view_equipment' %}";
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    alert('Something went wrong, Try again');
+</script>
+{% endif %}
+
+{% endblock %}

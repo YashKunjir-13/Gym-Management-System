@@ -1,0 +1,79 @@
+{% extends 'navigationbar.html' %}
+{% load static %}
+{% block body %}
+
+<div class="container" style="margin-top:100px">
+    <h2 class="text-center text-primary font-weight-bold">View Members</h2>
+
+    <table id="example" class="table table-hover">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Contact</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Plan</th>
+            <th>Join Date</th>
+            <th>Renewal</th>
+            <th>Amount</th>
+            <th>Duration</th>
+            <th>Pending Amount</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for i in member %}
+        <tr>
+            <td>{{ i.name }}</td>
+            <td>{{ i.contact }}</td>
+            <td>{{ i.age }}</td>
+            <td>{{ i.gender }}</td>
+            <td>{{ i.plan }}</td>
+            <td>{{ i.join_date }}</td>
+            <td>{{ i.renewal }}</td>
+            <td>{{ i.amount }}</td>
+            <td>{{ i.duration }}</td>
+            <td>{{ i.pending_amount }}</td>
+
+            <td>
+                <!--  Add Fees Button -->
+                <a class="btn btn-info btn-sm"
+                   href="{% url 'add_fees' i.id %}">
+                    Add Fees
+                </a>
+
+                <!--  Fees History Button -->
+                <a class="btn btn-success btn-sm"
+                   href="{% url 'member_fees_history' i.id %}">
+                    Fees History
+                </a>
+
+                <!--  Delete Member Button -->
+                <a class="btn btn-danger btn-sm"
+                   href="{% url 'delete_member' i.id %}"
+                   onclick="return confirm('Are you sure?')">
+                    Delete
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+</div>
+
+{% if error == "no" %}
+<script>
+    alert('Record fetch successfully');
+    window.location = "{% url 'view_member' %}";
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    alert('Something went wrong, Try again');
+</script>
+{% endif %}
+
+{% endblock %}

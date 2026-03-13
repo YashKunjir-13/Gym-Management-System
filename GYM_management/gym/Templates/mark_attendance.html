@@ -1,0 +1,42 @@
+{% extends 'navigationbar.html' %}
+{% block body %}
+
+<div class="container" style="margin-top:100px">
+    <h2 class="text-center">Mark Attendance - {{ today }}</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        <table class="table table-bordered">
+            <tr>
+                <th>Name</th>
+                <th>Present</th>
+                <th>Absent</th>
+            </tr>
+
+            {% for m in members %}
+            <tr>
+                <td>{{ m.name }}</td>
+                <td><input type="radio" name="status_{{ m.id }}" value="Present"></td>
+                <td><input type="radio" name="status_{{ m.id }}" value="Absent"></td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <button class="btn btn-primary">Submit Attendance</button>
+    </form>
+
+    {% if error == "no" %}
+    <script>
+        alert("Attendance marked successfully!");
+        window.location = "{% url 'mark_attendance' %}";
+    </script>
+    {% endif %}
+
+    {% if error == "yes" %}
+    <script>
+        alert("Something went wrong!");
+    </script>
+    {% endif %}
+</div>
+
+{% endblock %}

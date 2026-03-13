@@ -1,0 +1,219 @@
+{% extends 'navigationbar.html' %}
+{% load static %}
+
+{% block body %}
+
+<style>
+    /* CSS for Responsiveness and Styling (Embedded) */
+    :root {
+        --primary-color: #0056b3; /* Deeper Blue for Headings/Accents */
+        --secondary-color: #212529; /* Near-Black for CTA Background */
+        --success-color: black; /* Green Button */
+        --light-bg: #e9ecef;
+        --white-bg: #ffffff;
+        --text-dark: #003366; /* Dark Blue for all body text */
+    }
+
+    /* Basic Reset/Setup */
+    .content {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.7;
+        color: var(--text-dark);
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+        background-color: var;
+    }
+
+    h1 {
+        text-align: center;
+        color: var(--primary-color);
+        font-size: 2.8em;
+        margin-bottom: 30px;
+        border-bottom: 4px solid var(--primary-color);
+        padding-bottom: 15px;
+        font-weight: 600;
+    }
+
+    h2 {
+        color: var(--primary-color);
+        font-size: 2em;
+        margin-top: 40px;
+        border-left: 6px solid var(--primary-color);
+        padding-left: 15px;
+        margin-bottom: 25px;
+        font-weight: 500;
+    }
+
+    /* Hero/Introduction Section */
+    .intro-section {
+        background-color: var(--white-bg);
+        padding: 50px;
+        border-radius: 12px;
+        text-align: center;
+        margin-bottom: 40px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .intro-section p {
+        font-size: 1.2em;
+        color: var(--text-dark);
+        font-weight: 400;
+    }
+
+    /* Core Content Grid (Vision/Mission/Focus) */
+    .core-values-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-bottom: 40px;
+    }
+
+    .card {
+        background-color: var(--white-bg);
+        padding: 30px;
+        border-radius: 10px;
+        border-top: 5px solid var(--primary-color);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .card h3 {
+        color: var(--primary-color);
+        font-size: 1.5em;
+        margin-top: 0;
+        font-weight: 600;
+    }
+
+    .card p {
+        color: var(--text-dark);
+    }
+
+    /* Specific Focus Section */
+    .gym-focus {
+        background-color: #d1ecf1;
+        padding: 40px;
+        border-radius: 12px;
+        text-align: center;
+        margin-bottom: 40px;
+        border: 1px solid #bee5eb;
+    }
+
+    .gym-focus h2 {
+        color: var(--text-dark);
+        border-left-color: var(--text-dark);
+    }
+
+    .gym-focus p {
+        font-size: 1.1em;
+        max-width: 900px;
+        margin: 15px auto;
+        color: var(--text-dark);
+    }
+
+    /* Call to Action (CTA) */
+    .cta-section {
+        text-align: center;
+        padding: 40px;
+        background-color: var(--secondary-color);
+        color: white;
+        border-radius: 8px;
+    }
+
+    .cta-section h3 {
+        color: white;
+        margin-bottom: 15px;
+        font-size: 1.8em;
+    }
+
+    .cta-button {
+        display: inline-block;
+        background-color: var(--success-color);
+        /* --- START OF MODIFICATION --- */
+        color: #000000; /* Set to Black as requested */
+        font-weight: bold; /* Ensures it is bold */
+        /* --- END OF MODIFICATION --- */
+        padding: 14px 30px;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: background-color 0.3s, transform 0.3s;
+        margin-top: 15px;
+        font-size: 1.1em;
+    }
+
+    .cta-button:hover {
+        background-color: #1e7e34;
+        transform: translateY(-2px);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 2.2em;
+        }
+
+        h2 {
+            font-size: 1.6em;
+        }
+
+        .intro-section, .gym-focus, .card {
+            padding: 25px 20px;
+        }
+
+        .cta-button {
+            padding: 12px 20px;
+            font-size: 1em;
+        }
+    }
+</style>
+
+
+<div class="content">
+    <h1>About M_Soft Solutions</h1>
+
+    <section class="intro-section">
+        <p>
+            M_Soft Solutions is a dynamic software company dedicated to building **robust, intuitive management systems** that help businesses streamline complex operations and drive efficiency. We believe that powerful technology should also be simple and accessible.
+        </p>
+    </section>
+
+    <h2>Our Foundation</h2>
+    <div class="core-values-grid">
+        <div class="card">
+            <h3>Vision</h3>
+            <p>To be the premier partner for specialized business management solutions, setting the industry standard for reliability, user experience, and measurable business growth.</p>
+        </div>
+        <div class="card">
+            <h3>Mission</h3>
+            <p>Our mission is to deliver innovative and secure software that simplifies daily management tasks, providing our clients with the tools and data they need to focus on what they do best.</p>
+        </div>
+        <div class="card">
+            <h3>Core Value</h3>
+            <p>We prioritize **Simplicity, Security, and Scalability**. We build software that is easy to adopt, protects client data, and grows seamlessly with any business.</p>
+        </div>
+    </div>
+
+    <section class="gym-focus">
+        <h2>Our Current Focus: Gym Management Software</h2>
+        <p>
+            We are currently focused on providing a comprehensive, all-in-one **Gym Management System**. This specialized software is designed to solve the unique operational challenges of fitness centers, personal training studios, and health clubs.
+        </p>
+        <p>
+            **Key Benefits:** Automated membership billing, seamless class scheduling, simplified member check-in, real-time reporting, and centralized staff management. We help gyms operate smarter, not harder.
+        </p>
+    </section>
+
+    <section class="cta-section">
+        <h3>Ready to Transform Your Operations?</h3>
+        <p>Whether you're opening a new gym or looking to upgrade your existing system, M_Soft Solutions has the management solution for you.</p>
+        <a href="{% url 'contact' %}" class="cta-button">Request a Free Demo</a>
+    </section>
+
+</div>
+
+{% endblock %}

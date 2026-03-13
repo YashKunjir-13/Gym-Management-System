@@ -1,0 +1,150 @@
+{% extends 'navigationbar.html' %}
+{% load static %}
+
+{% block body %}
+
+<!-- PAGE WRAPPER -->
+<div style="
+    background-image: url('/static/images/gym-bg.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    padding: 40px;
+    color: white;
+    backdrop-filter: brightness(0.8);
+">
+
+    <h1 class="text-center mb-4">📞 Contact Us</h1>
+
+    <!-- CONTACT CARDS -->
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-4">
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt fa-2x"></i>
+                    <h4>Address</h4>
+                    <p>M_Soft solutions,<br>3rd Floor, MG Road, Pune</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="contact-card">
+                    <i class="fas fa-phone fa-2x"></i>
+                    <h4>Phone</h4>
+                    <p>+91 9356042302</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="contact-card">
+                    <i class="fas fa-envelope fa-2x"></i>
+                    <h4>Email</h4>
+                    <p>yashmkunjir@gmail.com</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- PROFILE SECTION -->
+    <div class="text-center mt-5">
+        <h3>Meet Our Head Consultant</h3>
+        <img src="/static/css/logo.png"
+             class="profile-img mt-3"
+             alt="Trainer">
+
+        <h4 class="mt-3">yash kunjir</h4>
+        <p></p>
+
+        <!-- WhatsApp Message button (opens WhatsApp Web or app) -->
+        <a href="https://wa.me/919356042302?text=Hello%20M_Soft%20Solutions%2C%20I%20would%20like%20a%20demo%20please."
+           class="btn btn-outline-light"
+           target="_blank"
+           rel="noopener noreferrer">
+            Message
+        </a>
+    </div>
+
+
+    <!-- GOOGLE MAP -->
+    <div class="mt-5">
+        <h3 class="text-center">Find Us on Map</h3>
+        <div class="map-container mt-3">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d241317.11609755785!2d73.72287894875552!3d18.52461620995016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c06df9bcdf53%3A0xeff2b3a8f5c9b1f4!2sPune!5e0!3m2!1sen!2sin!4v123456789"
+                width="100%" height="300" style="border:0;" allowfullscreen loading="lazy">
+            </iframe>
+        </div>
+    </div>
+
+</div>
+
+<!-- POPUP MODAL (can be removed if not used) -->
+<div class="modal fade" id="contactModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content text-dark">
+
+            <div class="modal-header">
+                <h5 class="modal-title">Send a Message</h5>
+                <button class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+                <form>
+                    <label>Name</label>
+                    <input type="text" class="form-control mb-3" required>
+
+                    <label>Email</label>
+                    <input type="email" class="form-control mb-3" required>
+
+                    <label>Message</label>
+                    <textarea class="form-control" rows="4" required></textarea>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button class="btn btn-primary">Send</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- EXTRA CSS -->
+<style>
+    .contact-card {
+        background: rgba(0, 0, 0, 0.4);
+        padding: 25px;
+        border-radius: 15px;
+        text-align: center;
+        margin-bottom: 25px;
+        transition: 0.3s;
+    }
+    .contact-card:hover {
+        background: rgba(0, 0, 0, 0.7);
+        transform: translateY(-5px);
+    }
+    .social-icon {
+        color: white;
+        transition: 0.3s;
+    }
+    .social-icon:hover {
+        color: #ffcc00;
+        transform: scale(1.2);
+    }
+    .profile-img {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        border: 3px solid white;
+        object-fit: cover;
+    }
+    .map-container {
+        border-radius: 15px;
+        overflow: hidden;
+    }
+</style>
+
+{% endblock %}

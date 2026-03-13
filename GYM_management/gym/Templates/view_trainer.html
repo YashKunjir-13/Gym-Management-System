@@ -1,0 +1,51 @@
+{% extends 'navigationbar.html' %}
+{% load static %}
+{% block body %}
+
+<div class="container" style="margin-top:100px">
+    <h2 class="text-center text-primary font-weight-bold">View Trainer</h2>
+
+    <table id="example" class="table table-hover">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Contact</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Salary</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for i in trainer %}
+        <tr>
+            <td>{{ i.name }}</td>
+            <td>{{ i.contact }}</td>
+            <td>{{ i.age }}</td>
+            <td>{{ i.gender }}</td>
+            <td>{{ i.salary }}</td>
+
+            <td>
+                <a class="btn btn-info btn-sm" href="{% url 'add_salary' i.id %}">
+                    Add Salary
+                </a>
+
+                <a class="btn btn-success btn-sm" href="{% url 'salary_history' i.id %}">
+                    Salary History
+                </a>
+
+                <a class="btn btn-danger btn-sm"
+                   href="{% url 'delete_trainer' i.id %}"
+                   onclick="return confirm('Are you sure?')">
+                   Delete
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'navigationbar.html' %}
+{% block body %}
+
+<div class="container" style="margin-top:100px">
+    <h2 class="text-center">Attendance Records</h2>
+
+    <form method="GET">
+        <label>Select a Date:</label>
+        <input type="date" name="date">
+        <button class="btn btn-info">Search</button>
+    </form>
+
+    {% if attendance %}
+    <table class="table table-bordered" style="margin-top:20px">
+        <tr>
+            <th>Name</th>
+            <th>Status</th>
+        </tr>
+
+        {% for a in attendance %}
+        <tr>
+            <td>{{ a.member.name }}</td>
+            <td>{{ a.status }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</div>
+
+{% endblock %}

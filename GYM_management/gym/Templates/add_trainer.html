@@ -1,0 +1,44 @@
+{% extends 'navigationbar.html' %}
+{% load static %}
+{% block body %}
+
+<div class="container" style="margin-top:100px; max-width:600px;">
+    <h2 class="text-center text-primary font-weight-bold">Add Trainer</h2>
+
+    <form method="POST" class="mt-4">
+        {% csrf_token %}
+
+        <label><b>Name</b></label>
+        <input type="text" name="name" placeholder="Name" required class="form-control">
+
+        <label class="mt-2"><b>Contact</b></label>
+        <input type="number" name="contact" placeholder="Contact" required class="form-control">
+
+        <label class="mt-2"><b>Age</b></label>
+        <input type="number" name="age" placeholder="Age" required class="form-control">
+
+        <label class="mt-2"><b>Gender</b></label><br>
+        <input type="radio" name="gender" value="Male"> Male
+        <input type="radio" name="gender" value="Female" class="ml-3"> Female
+        <br>
+        <label class="mt-3"><b>Salary</b></label>
+        <input type="number" name="salary" placeholder="Salary" required class="form-control">
+
+        <button type="submit" class="btn btn-primary form-control mt-3">Submit</button>
+    </form>
+</div>
+
+{% if error == "no" %}
+<script>
+    alert('Record saved successfully');
+    window.location = "{% url 'view_trainer' %}";
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    alert('Something went wrong, Try again');
+</script>
+{% endif %}
+
+{% endblock %}
