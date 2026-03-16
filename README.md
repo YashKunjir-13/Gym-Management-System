@@ -14,3 +14,4 @@ Through this system, the admin can monitor member registrations, track fee payme
 This system helps reduce manual record-keeping, minimizes errors, and enhances communication between gym staff and members.
 
 
+/
